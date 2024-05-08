@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title text-center">Prediction Result</h3>
+            </div>
+            <div class="card-body">
+                <div class="text-center">
+                    <h3>Predicted Class: {{ prediction.predicted_class }}</h3>
+                    <h3>Confidence: {{ prediction.confidence }}</h3>
+                </div>
+                <hr>
+                <div class="row mt-4">
+                    <div class="col-md-6 offset-md-3">
+                        <h4>Normal Traffic Image Uploaded</h4>
+                        <img src="{{ prediction.image.url }}" class="img-fluid" alt="Uploaded Image">
+                    </div>
+                </div>
+                <div class="text-center p-3">
+                    <h4>Explainable AI Image</h4>
+                    <img src="{{ xai_image.image.url }}" class="img-fluid" alt="Explainable AI Image">
+                    <p>Explanation Method: {{ xai_image.explanation_method }}</p>
+                    <p>Features Used: {{ xai_image.features_used }}</p>
+                    <p>Explanation: {{ xai_image.explanation }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

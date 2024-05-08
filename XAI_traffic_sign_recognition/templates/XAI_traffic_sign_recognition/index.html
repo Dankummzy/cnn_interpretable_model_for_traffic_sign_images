@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="jumbotron bg-light">
+        <h1 class="display-4">Welcome to Traffic Sign Recognition</h1>
+        <p class="lead">Our platform utilizes Explainable AI (XAI) to interpret and explain traffic images.</p>
+        <hr class="my-4">
+
+    <h2>Upload Image for Classification</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+</div>
+{% endblock %}
